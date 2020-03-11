@@ -4,11 +4,11 @@
 
 import boto3
 
-ec2 = boto3.resource('ec2')
+ec2_instance = boto3.resource('ec2')
 
-instance = ec2.create_instances(
+instance = ec2_instance.create_instances(
 
- ImageId='ami-1e299d7e',
+ ImageId='ami-00000000',
 
  MinCount=1,
 
@@ -28,10 +28,10 @@ import boto3
 
 ec2 = boto3.resource('ec2')
 
-for instance_id in sys.argv[1:]:
+for i in sys.argv[1:]:
 
- instance = ec2.Instance(instance_id)
+ instance = ec2.Instance(i)
 
- response = instance.terminate()
+ output = instance.terminate()
 
- print response
+ print output
